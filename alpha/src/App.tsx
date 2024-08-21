@@ -1,10 +1,10 @@
-import './App.css'
+import Container from '../src/components/Container/Container'
 
 function App() {
   
   return (
     <>
-      <h1>hi</h1>
+      <Container />
     </>
   )
 }
