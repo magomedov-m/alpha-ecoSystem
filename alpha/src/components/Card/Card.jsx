@@ -1,19 +1,17 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { selectData } from "../../redux/dataSlice";
-import style from '../Card/Card.module.sass'
+import style from "../Card/Card.module.sass";
 
-export default function Card() {
-  const data = useSelector(selectData)
-  console.log('Card:', data.map(el => el.flags[0]))
+export default function Card({ img, title, capital, region, population }) {
   return (
     <div className={style.card}>
-      <div className={style.card__image}><img src={data[198].flags[0]} alt="Флаг страны" /></div>
+      <div className={style.card__image}>
+        <img src={img} alt="Флаг страны" />
+      </div>
       <div className={style.card__block}>
-        <div className={style.card__title}>Название: Россия</div>
-        <div className={style.card__capital}>Столица: Москва</div>
-        <div className={style.card__region}>Регион: Евразия</div>
-        <div className={style.card__population}>Население: 140 млн</div>
+        <div className={style.card__title}>Название: {title}</div>
+        <div className={style.card__capital}>Столица: {capital}</div>
+        <div className={style.card__region}>Регион: {region}</div>
+        <div className={style.card__population}>Население: {population}</div>
       </div>
     </div>
   );
