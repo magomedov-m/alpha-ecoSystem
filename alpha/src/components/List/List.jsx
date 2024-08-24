@@ -1,16 +1,19 @@
 import { useSelector } from "react-redux";
 import { selectData } from "../../redux/dataSlice";
-import style from '../List/List.module.sass'
-import Sceletone from '../Sceletone/Sceletone'
+import { useNavigate } from "react-router-dom";
+import style from "../List/List.module.sass";
+import Sceletone from "../Sceletone/Sceletone";
 import Card from "../Card/Card";
 
 export default function List() {
   const data = useSelector(selectData);
+  const navigate = useNavigate();
   console.log("List:", data);
   return (
     <div className={style.list}>
       {data.map((movie, idx) => (
         <Card
+          onClick={() => navigate(`/country/${movie.name.official}`)}
           key={idx}
           img={movie.flags[0]}
           title={movie.name.official}
