@@ -1,9 +1,16 @@
-import Container from '../src/components/Container/Container'
+import HomePage from '../src/Pages/HomePage'
+import Detail from '../src/Pages/Detail'
+import NotFound from '../src/Pages/NotFound'
+import { Route } from 'react-router-dom'
 
 function App() {
   return (
     <>
-      <Container />
+      <Route path='/'>
+        <HomePage />
+      </Route>
+      <Route path='/country/:name' Component={Detail} />
+      <Route Component={NotFound} />
     </>
   )
 }
