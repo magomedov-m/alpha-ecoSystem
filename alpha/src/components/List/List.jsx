@@ -8,12 +8,16 @@ import Card from "../Card/Card";
 export default function List() {
   const data = useSelector(selectData);
   const navigate = useNavigate();
+  const handleCardClick = (movie) => {
+    navigate(`/country/:${movie}`);
+    console.log('navigate:', movie.name.official)
+  };
   console.log("List:", data);
   return (
     <div className={style.list}>
       {data.map((movie, idx) => (
         <Card
-          onClick={() => navigate(`/country/${movie.name.official}`)}
+          onClick={() => handleCardClick(movie.name.official)}
           key={idx}
           img={movie.flags[0]}
           title={movie.name.official}
