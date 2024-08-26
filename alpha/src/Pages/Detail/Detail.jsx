@@ -7,13 +7,24 @@ import style from "../Detail/Detail.module.sass";
 export default function Detail() {
   const { movie } = useParams();
   const [currentCard, setCurrentCard] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const getFetchData = async () => {
+      try {
       const resoponse = await axios.get(`https://restcountries.com/v3/name/${movie}`);
-      setCurrentCard(resoponse.data[0])
+      setCurrentCard(resoponse.data[0]) }
+      catch (error) {
+        console.error('Ошибка при загрузке данных:', error);
+      } finally {
+        setLoading(false);
+      }
     };
     getFetchData();
-  }, []);
+  }, [movie]);
+
+  if (loading) {
+    return <div>Загрузка...</div>
+  }
   console.log('currentCard', currentCard)
   console.log('movie-Detail:', movie);
   return (
@@ -49,7 +60,7 @@ export default function Detail() {
         </p>
         <p>
           <strong>Валюта:</strong>{" "}
-          <span className={style.data}>{} ({})</span>
+          <span className={style.data}>{currentCard.currencies.GIP.name} ({currentCard.currencies.GIP.symbol})</span>
         </p>
         <p>
           <strong>Код страны:</strong>{" "}
