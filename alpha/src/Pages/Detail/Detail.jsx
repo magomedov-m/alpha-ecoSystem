@@ -13,7 +13,7 @@ export default function Detail() {
       setCurrentCard(resoponse.data[0])
     };
     getFetchData();
-  }, [movie]);
+  }, []);
   console.log('currentCard', currentCard)
   console.log('movie-Detail:', movie);
   return (
@@ -34,18 +34,18 @@ export default function Detail() {
           <strong>Площадь:</strong> <span className={style.data}>{currentCard.area} км²</span>
         </p>
         <p>
-          <strong>Население:</strong> <span className={style.data}>{}</span>
+          <strong>Население:</strong> <span className={style.data}>{currentCard.population}</span>
         </p>
         <p>
-          <strong>Регион:</strong> <span className={style.data}>{}</span>
+          <strong>Регион:</strong> <span className={style.data}>{currentCard.region}</span>
         </p>
         <p>
           <strong>Подрегион:</strong>{" "}
-          <span className={style.data}>{}</span>
+          <span className={style.data}>{currentCard.subregion}</span>
         </p>
         <p>
           <strong>Часовой пояс:</strong>{" "}
-          <span className={style.data}>{}</span>
+          <span className={style.data}>{currentCard.timezones}</span>
         </p>
         <p>
           <strong>Валюта:</strong>{" "}
@@ -68,10 +68,10 @@ export default function Detail() {
         </p>
         <p>
           <strong>Движение на дорогах:</strong>{" "}
-          <span className={style.data}>{}</span>
+          <span className={style.data}>{currentCard.car.side}</span>
         </p>
         <p>
-          <strong>Коды ФИФА:</strong> <span className={style.data}>{}</span>
+          <strong>Коды ФИФА:</strong> <span className={style.data}>{currentCard.fifa}</span>
         </p>
         <p>
           <strong>Альтернативные названия:</strong>{" "}
