@@ -1,24 +1,21 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { selectData } from "../../redux/dataSlice";
+import { useEffect, useState } from "react";
 import style from "../Detail/Detail.module.sass";
 
 export default function Detail() {
   const { movie } = useParams();
-  const data = useSelector(selectData);
-  const currentCard = useEffect(() => {
+  const [currentCard, setCurrentCard] = useState([]);
+  useEffect(() => {
     const getFetchData = async () => {
-      currentCard = await axios.get(`https://restcountries.com/v3/name/${movie}`);
-      console.log(currentCard.data);
+      const resoponse = await axios.get(`https://restcountries.com/v3/name/${movie}`);
+      setCurrentCard(resoponse.data[0])
     };
     getFetchData();
-  }, []);
-  console.log('Detail - data:', data);
-  console.log('movie:', movie);
-  console.log('Find:', currentCard)
+  }, [movie]);
+  console.log('currentCard', currentCard)
+  console.log('movie-Detail:', movie);
   return (
     <div className={style.detail_card}>
       <h1 className={style.title}>Информация о {movie}</h1>
@@ -27,7 +24,7 @@ export default function Detail() {
         <h2 className={style.section_title}>Общие сведения</h2>
         <p>
           <strong>Название:</strong>{" "}
-          <span className={style.data}>{currentCard.name.official}</span>
+          <span className={style.data}>{}</span>
         </p>
         <p>
           <strong>Столица:</strong>{" "}
@@ -37,26 +34,26 @@ export default function Detail() {
           <strong>Площадь:</strong> <span className={style.data}>{currentCard.area} км²</span>
         </p>
         <p>
-          <strong>Население:</strong> <span className={style.data}>{currentCard.population}</span>
+          <strong>Население:</strong> <span className={style.data}>{}</span>
         </p>
         <p>
-          <strong>Регион:</strong> <span className={style.data}>{currentCard.region}</span>
+          <strong>Регион:</strong> <span className={style.data}>{}</span>
         </p>
         <p>
           <strong>Подрегион:</strong>{" "}
-          <span className={style.data}>{currentCard.subregion}</span>
+          <span className={style.data}>{}</span>
         </p>
         <p>
           <strong>Часовой пояс:</strong>{" "}
-          <span className={style.data}>{currentCard.timezones}</span>
+          <span className={style.data}>{}</span>
         </p>
         <p>
           <strong>Валюта:</strong>{" "}
-          <span className={style.data}>{currentCard.currencies.XCD.name} ({currentCard.currencies.XCD.symbol})</span>
+          <span className={style.data}>{} ({})</span>
         </p>
         <p>
           <strong>Код страны:</strong>{" "}
-          <span className={style.data}>{currentCard.cca3}</span>
+          <span className={style.data}>{}</span>
         </p>
       </div>
 
@@ -67,18 +64,18 @@ export default function Detail() {
         </p>
         <p>
           <strong>Страны соседи:</strong>{" "}
-          <span className={style.data}>{currentCard.borders}</span>
+          <span className={style.data}>{}</span>
         </p>
         <p>
           <strong>Движение на дорогах:</strong>{" "}
-          <span className={style.data}>{currentCard.car.side}</span>
+          <span className={style.data}>{}</span>
         </p>
         <p>
-          <strong>Коды ФИФА:</strong> <span className={style.data}>{currentCard.fifa}</span>
+          <strong>Коды ФИФА:</strong> <span className={style.data}>{}</span>
         </p>
         <p>
           <strong>Альтернативные названия:</strong>{" "}
-          <span className={style.data}>{currentCard.name.common}</span>
+          <span className={style.data}>{}</span>
         </p>
       </div>
 

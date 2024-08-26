@@ -10,7 +10,7 @@ export default function List() {
   const navigate = useNavigate();
   const handleCardClick = (movie) => {
     navigate(`/country/:${movie}`);
-    console.log('navigate:', movie.name.official)
+    console.log('navigate-movie:', movie)
   };
   console.log("List:", data);
   return (
