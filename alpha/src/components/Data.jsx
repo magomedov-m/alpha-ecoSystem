@@ -10,7 +10,6 @@ export default function Data() {
     const fetchData = async () => {
       const response = await axios.get(MAIN_URL);
       dispatch(setData(response.data));
-      console.log(response.data);
     };
     fetchData();
   }, [dispatch]);

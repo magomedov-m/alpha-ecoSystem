@@ -31,6 +31,7 @@ export default function Detail() {
   console.log("movie-Detail:", movie);
   return (
     <div className={style.detail_card}>
+      <a href="/"><img src="https://img.icons8.com/?size=50&id=cDx9hF2Mr4fv&format=png" /></a>
       <h1 className={style.title}>Информация о {movie}</h1>
       <img src={currentCard.flags[0]} className={style.detail_card__img} />
       <div className={style.info_section}>

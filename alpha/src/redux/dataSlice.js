@@ -14,8 +14,6 @@ export const dataSlice = createSlice({
   },
 })
 
-console.log('dataSlice', initialState)
-
 export const { setData } = dataSlice.actions
 
 export const selectData = (state) => state.data.items;

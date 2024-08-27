@@ -1,4 +1,4 @@
-import HomePage from "../src/Pages/HomePage";
+import HomePage from "../src/Pages/HomePage/HomePage";
 import Detail from "../src/Pages/Detail/Detail";
 import NotFound from "../src/Pages/NotFound/NotFound";
 import { BrowserRouter, Routes, Route } from "react-router-dom";

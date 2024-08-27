@@ -4,15 +4,14 @@ import { useNavigate } from "react-router-dom";
 import style from "../List/List.module.sass";
 import Sceletone from "../Sceletone/Sceletone";
 import Card from "../Card/Card";
+import { useState } from "react";
 
 export default function List() {
   const data = useSelector(selectData);
   const navigate = useNavigate();
   const handleCardClick = (movie) => {
     navigate(`/country/:${movie}`);
-    console.log('navigate-movie:', movie)
   };
-  console.log("List:", data);
   return (
     <div className={style.list}>
       {data.map((movie, idx) => (
@@ -26,7 +25,6 @@ export default function List() {
           population={movie.population}
         />
       ))}
-      {/* <Sceletone /> */}
     </div>
   );
 }
