@@ -25,13 +25,17 @@ export default function Detail() {
   }, [movie]);
 
   if (loading) {
-    return <div>Загрузка...</div>;
+    return <div className={style.loading}>Загрузка...</div>;
   }
   console.log("currentCard", currentCard);
   console.log("movie-Detail:", movie);
   return (
     <div className={style.detail_card}>
-      <a href="/"><img src="https://img.icons8.com/?size=50&id=cDx9hF2Mr4fv&format=png" /></a>
+      <div className={style.detail_card__return}>
+        <a href="/">
+          <img src="https://img.icons8.com/?size=50&id=cDx9hF2Mr4fv&format=png" />
+        </a>
+      </div>
       <h1 className={style.title}>Информация о {movie}</h1>
       <img src={currentCard.flags[0]} className={style.detail_card__img} />
       <div className={style.info_section}>
@@ -67,13 +71,17 @@ export default function Detail() {
         <p>
           <strong>Валюта:</strong>{" "}
           <span className={style.data}>
-            {currentCard.currencies ? Object.entries(currentCard.currencies).map(
-              ([code, { name, symbol }]) => (
-                <span key={code}>
-                  {name} {'-'} ({symbol}){'; '}
-                </span>
+            {currentCard.currencies ? (
+              Object.entries(currentCard.currencies).map(
+                ([code, { name, symbol }]) => (
+                  <span key={code}>
+                    {name} {"-"} ({symbol}){"; "}
+                  </span>
+                )
               )
-            ) : <span>-</span>}
+            ) : (
+              <span>-</span>
+            )}
           </span>
         </p>
         <p>
@@ -85,14 +93,19 @@ export default function Detail() {
       <div className={style.info_section}>
         <h2 className={style.section_title}>Дополнительная информация</h2>
         <p>
-          <strong>Флаг:</strong> <span className={style.data}>{currentCard.flag}</span>
+          <strong>Флаг:</strong>{" "}
+          <span className={style.data}>{currentCard.flag}</span>
         </p>
         <p>
           <strong>Страны соседи:</strong>{" "}
           <span className={style.data}>
-            {currentCard.borders ? Object.entries(currentCard.borders).map(([id, el]) => (
-              <span key={id}>{el + ' '}</span>
-            )) : <span>-</span>}
+            {currentCard.borders ? (
+              Object.entries(currentCard.borders).map(([id, el]) => (
+                <span key={id}>{el + " "}</span>
+              ))
+            ) : (
+              <span>-</span>
+            )}
           </span>
         </p>
         <p>
@@ -119,10 +132,7 @@ export default function Detail() {
         </p>
         <p>
           <strong>OpenStreetMap:</strong>{" "}
-          <a
-            href={currentCard.maps.openStreetMaps}
-            target="_blank"
-          >
+          <a href={currentCard.maps.openStreetMaps} target="_blank">
             Открыть карту
           </a>
         </p>
