@@ -16,6 +16,7 @@ export default function List() {
     <div className={style.list}>
       {data.map((movie, idx) => (
         <Card
+        movie={movie}
           onClick={() => handleCardClick(movie)}
           key={idx}
           img={movie.flags[0]}
