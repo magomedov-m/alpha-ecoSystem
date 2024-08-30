@@ -2,9 +2,7 @@ import { useSelector } from "react-redux";
 import { selectData } from "../../redux/dataSlice";
 import { useNavigate } from "react-router-dom";
 import style from "../List/List.module.sass";
-import Sceletone from "../Sceletone/Sceletone";
 import Card from "../Card/Card";
-import { useState } from "react";
 
 export default function List() {
   const data = useSelector(selectData);
