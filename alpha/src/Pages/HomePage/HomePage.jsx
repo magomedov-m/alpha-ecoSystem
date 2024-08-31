@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../../components/Header/Header";
 import Input from "../../components/Input/Input";
-import Data from '../../components/Data'
 import List from "../../components/List/List";
 import style from "../HomePage/HomePage.module.sass";
 
@@ -11,7 +10,6 @@ export default function Container() {
       <Header />
       <Input />
       <List />
-      <Data />
     </div>
   );
 }
