@@ -1,5 +1,5 @@
 import React from "react";
-import style from '../FavoutiresCard/FavouritesCard.module.sass'
+import style from './FavouritesCard.module.sass'
 // import user
 
 export default function FavouritesCard() {
