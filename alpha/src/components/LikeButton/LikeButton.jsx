@@ -1,12 +1,22 @@
 import React, { useState } from "react";
 import style from "../LikeButton/LikeButton.module.sass";
+import { useDispatch, useSelector } from "react-redux";
+import { addLikedElem, removeLikedElem } from "../../redux/likedElementsSlice";
 
 export default function LikeButton({ movie }) {
+  const dispatch = useDispatch();
+  // console.log('movie:', movie)
+  const likedElems = useSelector((state) => state);
+  console.log('likedEelems:', likedElems)
   const [liked, setLiked] = useState(false);
 
   const handleClick = (event) => {
     event.stopPropagation();
-    setLiked(!liked);
+    if (l) {
+      dispatch(removeLikedElem(movie));
+    } else {
+      dispatch(addLikedElem(movie));
+    }
     console.log(`это элемент понравившийся: ${movie.name.official}`, movie);
   };
   return (
