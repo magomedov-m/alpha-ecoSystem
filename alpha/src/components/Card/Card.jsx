@@ -22,7 +22,7 @@ export default function Card({
     <>
       <div onClick={handleClick} className={style.card}>
         <div className={style.card__image}>
-          <img src={img} alt={`Флаг ${title}`} />
+          <img src={img} alt={`Флаг страны ${title}`} />
         </div>
         <LikeButton movie={movie} />
         <div className={style.card__block}>
