@@ -5,7 +5,6 @@ import { addLikedElem, removeLikedElem } from "../../redux/likedElementsSlice";
 
 export default function LikeButton({ movie }) {
   const dispatch = useDispatch();
-  // console.log('movie:', movie)
 
   const likedElems = useSelector((state) => state.likedElem);
 

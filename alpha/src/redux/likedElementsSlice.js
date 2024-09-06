@@ -10,7 +10,7 @@ const likedElementsSlice = createSlice({
       }
     },
     removeLikedElem: (state, action) => {
-      return state.filter((movie) => movie.name !== action.payload.name);
+      return state.filter((movie) => movie.name.official !== action.payload.name.official);
     },
   },
 });
